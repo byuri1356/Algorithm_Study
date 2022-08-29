@@ -7,10 +7,12 @@ int max_res=0;
 
 void dp(int n){
     for(int i=n-1; i>=0; i--){
-        if(t[i] + i > n) {
+        if(t[i] + i > n) { //현재일 + 해야할 일 > 최대 날
             p[i] = p[i+1];
         }
+
         else{
+            //현재 t의 pay와 t시간이 흐르고 난 후 pay
             if(p[i]+p[i+t[i]] > p[i+1]) p[i] += p[i+t[i]];
             else p[i] = p[i+1];
         }
