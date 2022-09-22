@@ -32,7 +32,7 @@ int minDay(queue<pair<pair<int, int>, int>> q, int n, int m, int h){
     while(!q.empty()){
         int size = q.size();
         for(int i=0; i<size; i++){
-            int x = q.front().first.first;
+            int x = q.front().first.first; 
             int y = q.front().first.second;
             int z = q.front().second;
             q.pop();

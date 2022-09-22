@@ -14,9 +14,10 @@ void dfs(int k){
             count++;
             dfs(v[k][i]);
         }
-    }
-    
+    } 
 }
+
+
 
 int main(){
     int n, m;
@@ -29,6 +30,7 @@ int main(){
         v[x].push_back(y);
         v[y].push_back(x);
     }
+
     dfs(1);
 
     cout<<count<<endl;

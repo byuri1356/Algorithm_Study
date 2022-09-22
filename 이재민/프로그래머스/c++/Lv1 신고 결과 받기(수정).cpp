@@ -11,20 +11,17 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     vector<int> answer;
     vector<pair<string, string>> nonRepet;
     map<string, int> m;
-    map<string, int> repotCount;
-    map<string, int> res;
+    map<string, int> res; //결과
 
     for(int i=0; i<id_list.size(); i++){
-        repotCount[id_list[i]] = 0;
-        res[id_list[i]] = 0;
+        res[id_list[i]] = 0;//메일
     }
 
     //중복 없애기
     for(int i=0; i<report.size(); i++){
-        m[report[i]] = 0;
+        m[report[i]] = 0; //map의 성질을 이용
     }
-   
-    
+
     for(int i=0; i<report.size(); i++){
         string input = report[i];
         stringstream ss(input);
@@ -32,13 +29,13 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
         ss>>f>>s;
         pair<string, string> p = make_pair(f,s);
         if(m[report[i]]==0){
-            nonRepet.push_back(make_pair(f, s));   
-            m[report[i]] = 1; 
+            nonRepet.push_back(make_pair(f, s)); //중복을 없앤것을 받는거
+            m[report[i]] = 1; //report는 신고자 2개
         }
     }
 
     for(int i=0; i<nonRepet.size(); i++){
-        m[nonRepet[i].second]++;
+        m[nonRepet[i].second]++; // 신고당한 유저
     }
 
     for(int i=0; i<id_list.size(); i++){
